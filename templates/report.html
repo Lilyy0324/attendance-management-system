@@ -1,0 +1,43 @@
+<!-- templates/report.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Report</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Attendance Report</h1>
+    </header>
+    <nav>
+    <a href="/" class="button-hover"><span>Home</span></a>
+    <a href="/add_student" class="button-hover"><span>Add Student</span></a>
+    <a href="/report" class="button-hover"><span>Report</span></a>
+</nav>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll No</th>
+                    <th>Class</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td>{{ record.name }}</td>
+                    <td>{{ record.roll_no }}</td>
+                    <td>{{ record.class }}</td>
+                    <td>{{ record.date }}</td>
+                    <td>{{ record.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

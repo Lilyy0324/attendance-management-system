@@ -1,0 +1,50 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Attendance</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Mark Attendance</h1>
+    </header>
+    <nav>
+    <a href="/" class="button-hover"><span>Home</span></a>
+    <a href="/add_student" class="button-hover"><span>Add Student</span></a>
+    <a href="/report" class="button-hover"><span>Report</span></a>
+</nav>
+
+    <div class="container">
+        <form id="attendanceForm">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Roll No</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.roll_no }}</td>
+                        <td>
+                            <select name="status" data-roll="{{ student.roll_no }}">
+                                <option value="Present">Present</option>
+                                <option value="Absent">Absent</option>
+                            </select>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br><br>
+            <button class="button-hover" type="submit">Submit Attendance</button>
+        </form>
+    </div>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
